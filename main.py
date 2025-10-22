@@ -14,6 +14,7 @@ async def greet(username:str):
     return {"message": f"Hello {username}"}
 
 # Query Parameters
+# http://localhost:8000/search?username=Pedro
 
 user_list = [
     "João",
@@ -30,3 +31,12 @@ async def search(username:str):
         
         else:
             return {"message": f"Usuário não encontrado!!!"} 
+
+
+#Optional Parameters
+
+from typing import Optional
+
+@app.get("/greetoptional")
+async def greetoptional(username:Optional[str]="Convidado"):
+    return {"message": f"Olá, {username}  como você está"}
