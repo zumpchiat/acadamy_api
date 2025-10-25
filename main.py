@@ -79,3 +79,17 @@ async def update_academia(id: int, academia_update_data:AcademiaUpdate) -> dict:
           
             return academia
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Academia não encontrada!")
+
+
+#Delete /api/academias/id
+@app.delete("/api/academias/{id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_academia(id: int):
+    
+    for academia in academias:
+        if academia["id"] == id:
+            academias.remove(academia)
+            return {}
+
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Academia não encontrada!")
+
+
