@@ -8,22 +8,22 @@ app = FastAPI()
 
 academias = [{
     "id": 1,
-    "nome": "Team Neves",
-    "responsavel_tecnico": "Nelson Gonçalves",
+    "nome": "Equipe BRAE",
+    "responsavel_tecnico": "Mauro Gonçalves",
     "fundacao": "1990",
     "criado_at" : "2014-06-15" 
 },
 {
     "id": 2,
-    "nome": "Team Caveira",
-    "responsavel_tecnico": "Anderson Almeida",
+    "nome": "Equipe CRUA",
+    "responsavel_tecnico": "Almeida",
     "fundacao": "2013",
     "criado_at" : "2016-04-05" 
 },
 {
     "id": 3,
-    "nome": "Team Carneiro",
-    "responsavel_tecnico": "Marcos Carneiro",
+    "nome": "Equipe Saboia",
+    "responsavel_tecnico": "Magno ",
     "fundacao": "2018",
     "criado_at" : "2018-08-12"
 }
