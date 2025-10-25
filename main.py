@@ -35,6 +35,13 @@ class Academia(BaseModel):
      fundacao : str
      criado_at : str
 
+class AcademiaUpdate(BaseModel):
+     nome : str
+     responsavel_tecnico : str
+     fundacao : str
+     
+
+
 # Get /api/academias
 @app.get("/api/academias", response_model=List[Academia])
 async def get_all_academias():
@@ -60,6 +67,15 @@ async def create_academia(academia_data: Academia) -> dict:
     return new_academia
 
 
+#patch /api/academias/id
+@app.patch("/api/academias/{id}")
+async def update_academia(id: int, academia_update_data:AcademiaUpdate) -> dict:
 
-
-
+    for academia in academias:
+        if academia["id"] == id:
+            academia["nome"] = academia_update_data.nome
+            academia["responsavel_tecnico"] = academia_update_data.responsavel_tecnico
+            academia["fundacao"] = academia_update_data.fundacao
+          
+            return academia
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Academia não encontrada!")
